@@ -28,7 +28,7 @@ a {
   border: 2px solid $base-color;
   background-color: rgba(45, 54, 81, 0.8);
   text-align: center;
-  letter-spacing: 0.15rem;
+  letter-spacing: 0.15em;
   font-size: 1.125rem;
   transition: background-color 0.5s, border-color 0.5s;
   &:hover, &:focus {

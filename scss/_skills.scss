@@ -1,0 +1,63 @@
+.skills {
+  padding: $gutter;
+  grid-template: repeat(3, 32vh) / repeat(4, 1fr);
+  grid-gap: $gutter;
+  &-item {
+    position: relative;
+    background-position: center;
+    background-size: 100%;
+    text-align: center;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    font-size: 1.25rem;
+    transition: background-size 0.5s;
+    & a {
+      position: absolute;
+      display: grid;
+      align-content: center;
+      padding: $gutter;
+      width: 100%;
+      height: 100%;
+      transition: color 0.5s;
+      &:hover {
+        color: $accent-color;
+      }
+    }
+    &:hover {
+      background-size: 110%;
+      &::before {
+        opacity: 0.95;
+      }
+    }
+    &::before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: $base-color;
+      content: '';
+      opacity: 0.8;
+      transition: opacity 0.5s;
+    }
+    &:nth-child(1) {
+      grid-column: 1 / 3;
+    }
+    &:nth-child(5) {
+      grid-column: 2 / 4;
+    }
+    &:nth-child(6) {
+      grid-column: 4;
+      grid-row: 2 / 4;
+    }
+  }
+  &-button {
+    padding: $gutter;
+    padding-bottom: 30px;
+    text-align: center;
+    grid-column: 1 / 5;
+    .button {
+      min-width: 350px;
+    }
+  }
+}
