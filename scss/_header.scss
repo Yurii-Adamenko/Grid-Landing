@@ -5,7 +5,11 @@
   background-position: center;
   background-size: cover;
   &-wrapper {
-    grid-template-rows: minmax(30%, 90px) calc(80vh - 90px);
+    position: absolute;
+    right: 0;
+    left: 0;
+    height: 100%;
+    grid-template-rows: minmax(max-content, 15%) 1fr;
   }
   &-navbar {
     z-index: 1;
@@ -30,8 +34,9 @@
         justify-content: end;
         margin: 0 -20px 0 0;
         padding: 0;
+        width: 100%;
         list-style-type: none;
-        grid-template: auto / repeat(3, auto); 
+        grid-template-columns: repeat(auto-fit, minmax(max-content, 10%)); 
       }
       &__item {
         a {
@@ -52,12 +57,14 @@
     color: $light-color;
     text-align: center;
     &-title {
+      margin-top: 0;
       text-transform: uppercase;
       font-weight: 300;
       font-size: 3.75rem;
       font-family: 'Roboto Slab', serif;
     }
     &-buttons {
+      margin-bottom: 100px;
       .button {
         border-color: $light-color;
         background-color: rgba(255, 255, 255, 0.1);

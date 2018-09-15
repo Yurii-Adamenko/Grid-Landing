@@ -416,7 +416,12 @@ p {
 }
 
 .header-wrapper {
-  grid-template-rows: minmax(30%, 90px) calc(80vh - 90px);
+  position: absolute;
+  right: 0;
+  left: 0;
+  height: 100%;
+  grid-template-rows: minmax(-webkit-max-content, 15%) 1fr;
+  grid-template-rows: minmax(max-content, 15%) 1fr;
 }
 
 .header-navbar {
@@ -452,8 +457,10 @@ p {
   justify-content: end;
   margin: 0 -20px 0 0;
   padding: 0;
+  width: 100%;
   list-style-type: none;
-  grid-template: auto/repeat(3, auto);
+  grid-template-columns: repeat(auto-fit, minmax(-webkit-max-content, 10%));
+  grid-template-columns: repeat(auto-fit, minmax(max-content, 10%));
 }
 
 .header-navbar-menu__item a {
@@ -480,10 +487,15 @@ p {
 }
 
 .header-content-title {
+  margin-top: 0;
   text-transform: uppercase;
   font-weight: 300;
   font-size: 3.75rem;
   font-family: 'Roboto Slab', serif;
+}
+
+.header-content-buttons {
+  margin-bottom: 100px;
 }
 
 .header-content-buttons .button {
