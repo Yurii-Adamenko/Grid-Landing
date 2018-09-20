@@ -1,7 +1,7 @@
 .header {
   position: relative;
   min-height: 100vh;
-  background-image: url(../img/img-header.png);
+  background-color: $base-color;
   background-position: center;
   background-size: cover;
   &-wrapper {
@@ -15,7 +15,7 @@
     z-index: 1;
     align-items: center;
     justify-content: space-between;
-    grid-template: auto / repeat(2, auto);   
+    grid-template-columns: auto 1fr;  
     &-logo {
       text-transform: uppercase;
       a {
@@ -36,7 +36,7 @@
         padding: 0;
         width: 100%;
         list-style-type: none;
-        grid-template-columns: repeat(auto-fit, minmax(max-content, 10%)); 
+        grid-template-columns: repeat(auto-fit, minmax(max-content, 0%)); 
       }
       &__item {
         a {
@@ -74,7 +74,7 @@
       }
     }
   }
-  &::before {
+  &-overlay {
     position: absolute;
     top: 0;
     right: 0;
