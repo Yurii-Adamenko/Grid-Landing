@@ -1,18 +1,18 @@
 .skills {
   padding: $gutter;
-  grid-template: repeat(3, 32vh) / repeat(4, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-gap: $gutter;
   &-item {
     position: relative;
-    background-position: center;
-    background-size: 100%;
+    overflow: hidden;
+    min-height: 32vh;
     text-align: center;
     letter-spacing: 0.1em;
     font-weight: 700;
     font-size: 1.25rem;
-    transition: background-size 0.5s;
     & a {
       position: absolute;
+      z-index: 2;
       display: grid;
       align-content: center;
       padding: $gutter;
@@ -24,9 +24,11 @@
       }
     }
     &:hover {
-      background-size: 110%;
-      &::before {
-        opacity: 0.95;
+      .skills-item__overlay {
+        opacity: 0.95 !important;
+      }
+      .skills-item__image {
+        transform: scale(1.1);
       }
     }
     &__overlay {
@@ -35,27 +37,38 @@
       right: 0;
       bottom: 0;
       left: 0;
+      z-index: 1;
       background-color: $base-color;
-      content: '';
       opacity: 0.8;
       transition: opacity 0.5s;
     }
+    &__image {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      overflow: hidden;
+      background-position: center;
+      background-size: cover;
+      transition: transform 0.5s;
+    }
     &:nth-child(1) {
-      grid-column: 1 / 3;
+      grid-column: 1 / span 2;
     }
     &:nth-child(5) {
-      grid-column: 2 / 4;
+      grid-column: 2 / span 2;
     }
     &:nth-child(6) {
       grid-column: 4;
-      grid-row: 2 / 4;
+      grid-row: 2 / span 2;
     }
   }
   &-button {
     padding: $gutter;
     padding-bottom: 30px;
     text-align: center;
-    grid-column: 1 / 5;
+    grid-column: 1 / span 4;
     .button {
       min-width: 350px;
     }
