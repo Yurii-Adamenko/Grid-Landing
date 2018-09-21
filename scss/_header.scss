@@ -5,19 +5,17 @@
   background-position: center;
   background-size: cover;
   &-wrapper {
-    position: absolute;
-    right: 0;
-    left: 0;
     height: 100%;
     grid-template-rows: minmax(max-content, 15%) 1fr;
   }
   &-navbar {
+    position: relative;
     z-index: 1;
-    align-items: center;
     justify-content: space-between;
     margin-top: 10px;
     grid-template-columns: auto 1fr;  
     &-logo {
+      padding: $gutter;
       text-transform: uppercase;
       a {
         display: block;
@@ -31,12 +29,65 @@
       }
     }
     &-menu {
+      justify-items: end;
+      &__button {
+        position: relative;
+        display: none;
+        margin: 0;
+        margin-right: $gutter*2;
+        width: 30px;
+        height: 58px;
+        cursor: pointer;
+        transition: .5s ease-in-out;
+        transform: rotate(0deg);  
+        span {
+          position: absolute;
+          left: 0;
+          display: block;
+          width: 100%;
+          height: 3px;
+          border-radius: 9px;
+          background: $light-color;
+          opacity: 1;
+          transition: .25s ease-in-out;
+          transform: rotate(0deg);
+          &:nth-child(1) {
+            top: 18px;
+          }
+          &:nth-child(2),&:nth-child(3) {
+            top: 27px;
+          }
+          &:nth-child(4) {
+            top: 36px;
+          }
+        }
+        &.open {
+          span:nth-child(1) {
+            top: 18px;
+            left: 50%;
+            width: 0%;
+          }
+          span:nth-child(2) {
+            transform: rotate(45deg);
+          }
+          span:nth-child(3) {
+            transform: rotate(-45deg);
+          }
+          span:nth-child(4) {
+            top: 18px;
+            left: 50%;
+            width: 0%;
+          }
+        }
+      }  
       &__list {
+        align-items: center;
         justify-content: end;
         margin: 0 -20px 0 0;
         padding: 0;
         width: 100%;
         list-style-type: none;
+        text-align: right;
         grid-template-columns: repeat(auto-fit, minmax(max-content, 0%)); 
       }
       &__item {
@@ -55,6 +106,7 @@
     z-index: 1;
     align-content: center;
     justify-content: center;
+    padding: 130px $gutter 100px;
     color: $light-color;
     text-align: center;
     &-title {
@@ -65,7 +117,7 @@
       font-family: 'Roboto Slab', serif;
     }
     &-buttons {
-      margin-bottom: 100px;
+      // margin-bottom: 100px;
       .button {
         border-color: $light-color;
         background-color: rgba(255, 255, 255, 0.1);
